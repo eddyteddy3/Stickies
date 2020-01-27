@@ -18,9 +18,15 @@ class ViewController: UIViewController {
     
     //common variables
     let model = DeepLabV3()
+    let picker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        picker.delegate = self
+        picker.allowsEditing = true
+        
+        //functions to call
         initializeUIView() //initializing the view
     }
     
@@ -37,6 +43,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func cameraShutter(_ sender: Any) {
+        self.present(self.picker, animated: true)
     }
     
     @IBAction func flipCamera(_ sender: Any) {
@@ -45,8 +52,24 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController {
-    
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    //function to select the photoes from gallery.
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        var pickedImage: UIImage
+        
+        if let possibleImage = info[.originalImage] as? UIImage {
+            pickedImage = possibleImage
+        } else if let possibleImage = info[.editedImage] as? UIImage {
+            pickedImage = possibleImage
+        } else {
+            print("Failed to pick the image from gallery.")
+            return
+        }
+        
+        print(pickedImage.size)
+        
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension UIView {
