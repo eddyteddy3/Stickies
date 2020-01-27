@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,71 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Stickies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVr-E7-aLv">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="740"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vii-1a-Wxf">
+                                <rect key="frame" x="0.0" y="726" width="414" height="170"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTP-NV-mG2">
+                                        <rect key="frame" x="162" y="36" width="90" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="5MX-nI-8wF"/>
+                                            <constraint firstAttribute="width" constant="90" id="Gvi-rO-X2i"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="cameraButtton"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRI-Fg-DeR">
+                                        <rect key="frame" x="64" y="63.5" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="4fn-lv-Jac"/>
+                                            <constraint firstAttribute="width" constant="35" id="hLV-jb-OA0"/>
+                                        </constraints>
+                                        <state key="normal" image="flipCamera"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="NTP-NV-mG2" firstAttribute="leading" secondItem="HRI-Fg-DeR" secondAttribute="trailing" constant="63" id="M78-D2-UCm"/>
+                                    <constraint firstItem="HRI-Fg-DeR" firstAttribute="centerY" secondItem="NTP-NV-mG2" secondAttribute="centerY" id="bEM-8D-fVM"/>
+                                    <constraint firstItem="NTP-NV-mG2" firstAttribute="centerX" secondItem="vii-1a-Wxf" secondAttribute="centerX" id="dgV-sg-48F"/>
+                                    <constraint firstItem="HRI-Fg-DeR" firstAttribute="centerY" secondItem="vii-1a-Wxf" secondAttribute="centerY" constant="-4" id="sjm-gg-hKZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vii-1a-Wxf" firstAttribute="top" secondItem="gVr-E7-aLv" secondAttribute="bottom" constant="-14" id="6LH-3y-P0x"/>
+                            <constraint firstItem="gVr-E7-aLv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Eiw-b6-2Rh"/>
+                            <constraint firstItem="vii-1a-Wxf" firstAttribute="trailing" secondItem="gVr-E7-aLv" secondAttribute="trailing" id="Foj-P9-b9A"/>
+                            <constraint firstItem="vii-1a-Wxf" firstAttribute="leading" secondItem="gVr-E7-aLv" secondAttribute="leading" id="PeC-XW-SrH"/>
+                            <constraint firstItem="gVr-E7-aLv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="W9D-ml-K2s"/>
+                            <constraint firstAttribute="trailing" secondItem="gVr-E7-aLv" secondAttribute="trailing" id="cDe-5J-Sbs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gVr-E7-aLv" secondAttribute="bottom" constant="122" id="hVW-fB-mmD"/>
+                            <constraint firstAttribute="bottom" secondItem="vii-1a-Wxf" secondAttribute="bottom" id="vwB-DS-0CK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="bottomView" destination="vii-1a-Wxf" id="nn3-lk-lee"/>
+                        <outlet property="cameraShutterButton" destination="NTP-NV-mG2" id="jpw-2u-Yye"/>
+                        <outlet property="cameraView" destination="gVr-E7-aLv" id="zPB-tB-YVB"/>
+                        <outlet property="flipCamera" destination="HRI-Fg-DeR" id="XmD-1f-bIu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-857.97101449275374" y="78.348214285714278"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cameraButtton" width="550" height="550"/>
+        <image name="flipCamera" width="48" height="48"/>
+    </resources>
 </document>
