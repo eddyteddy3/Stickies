@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         //bottom view UI modifications
         bottomView.addCorner(cornerRadius: 20)
         bottomView.backgroundColor = UIColor.init(named: "modifiedGray")
-        bottomView.addDropShadow(color: .black, radius: 6, shadowOffset: .init(width: 0, height: 8), shadowOpacity: 0.8)
+        bottomView.addDropShadow(color: .black, radius: 6, shadowOffset: .init(width: 0, height: 8), shadowOpacity: 3)
     }
     
     @IBAction func cameraShutter(_ sender: Any) {
@@ -42,6 +42,10 @@ class ViewController: UIViewController {
     @IBAction func flipCamera(_ sender: Any) {
     }
     
+    
+}
+
+extension ViewController {
     
 }
 
