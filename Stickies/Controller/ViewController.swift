@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     //common variables
     let model = DeepLabV3()
     let picker = UIImagePickerController()
+    var pickedImage = UIImage()
+    var croppedImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,10 @@ class ViewController: UIViewController {
     
     @IBAction func cameraShutter(_ sender: Any) {
         self.present(self.picker, animated: true)
+        //if croppedImage = removeBackground(image: pickedImage)
+        
+        //print(pickedImage)
+        //print(croppedImage)
     }
     
     @IBAction func flipCamera(_ sender: Any) {
@@ -55,20 +61,23 @@ class ViewController: UIViewController {
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     //function to select the photoes from gallery.
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        var pickedImage: UIImage
         
         if let possibleImage = info[.originalImage] as? UIImage {
-            pickedImage = possibleImage
+            self.pickedImage = possibleImage
         } else if let possibleImage = info[.editedImage] as? UIImage {
-            pickedImage = possibleImage
+            self.pickedImage = possibleImage
         } else {
             print("Failed to pick the image from gallery.")
             return
         }
         
-        print(pickedImage.size)
+        //print(self.pickedImage.size)
         
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            print(self.pickedImage.size)
+            self.removeBackground(image: self.pickedImage)
+            print(self.croppedImage.size)
+        }
     }
 }
 
@@ -94,13 +103,8 @@ extension ViewController {
         if let pixelBuffer = resizedImage.pixelBuffer(width: Int(resizedImage.size.width), height: Int(resizedImage.size.height)) {
             if let outputImage = (try? model.prediction(image: pixelBuffer))?.semanticPredictions.image(min: 0, max: 1, axes: (0,0,1)), let outputCIImage = CIImage(image: outputImage) {
                 if let maskImage = removeWhitePixels(image: outputCIImage), let resizedCIImage = CIImage(image: resizedImage), let compositeImage = composite(image: resizedCIImage, mask: maskImage) {
-                    let image = UIImage(ciImage: compositeImage).resized(to: CGSize(width: image.size.width, height: image.size.height))
-                    DispatchQueue.main.async {
-                        //self.outputView.isHidden = false
-                        //self.imageView!.image = image
-                        //imageView?.image?.rotate(radians: )
-                        //imageView?.image?.imageOrientation = .up
-                    }
+                    let croppedImage = UIImage(ciImage: compositeImage).resized(to: CGSize(width: image.size.width, height: image.size.height))
+                    self.croppedImage = croppedImage
                 }
             }
         }
