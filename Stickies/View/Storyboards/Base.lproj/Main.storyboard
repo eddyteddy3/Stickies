@@ -78,28 +78,38 @@
             </objects>
             <point key="canvasLocation" x="-857.97101449275374" y="78.348214285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Sticker View Controller-->
         <scene sceneID="s8N-7q-c3c">
             <objects>
-                <viewController id="fGe-U2-pdf" sceneMemberID="viewController">
+                <viewController id="fGe-U2-pdf" customClass="StickerViewController" customModule="Stickies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Z2-tn-UE5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lB2-q4-piN">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="765"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkerBackground" translatesAutoresizingMaskIntoConstraints="NO" id="gnA-9i-UyA">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="741"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sk2-fX-ZLc">
+                                <rect key="frame" x="57" y="170" width="300" height="401"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="lB2-q4-piN" firstAttribute="leading" secondItem="tcb-5G-g8w" secondAttribute="leading" id="Fhr-HL-duo"/>
-                            <constraint firstItem="tcb-5G-g8w" firstAttribute="bottom" secondItem="lB2-q4-piN" secondAttribute="bottom" constant="97" id="VEd-Uw-dKc"/>
-                            <constraint firstItem="lB2-q4-piN" firstAttribute="centerX" secondItem="6Z2-tn-UE5" secondAttribute="centerX" id="eCR-fW-MaE"/>
-                            <constraint firstItem="lB2-q4-piN" firstAttribute="top" secondItem="6Z2-tn-UE5" secondAttribute="topMargin" constant="-44" id="gkJ-bb-IUp"/>
+                            <constraint firstItem="tcb-5G-g8w" firstAttribute="bottom" secondItem="gnA-9i-UyA" secondAttribute="bottom" constant="121" id="0ak-Cc-yOi"/>
+                            <constraint firstItem="gnA-9i-UyA" firstAttribute="centerX" secondItem="Sk2-fX-ZLc" secondAttribute="centerX" id="0pF-1K-qNo"/>
+                            <constraint firstItem="gnA-9i-UyA" firstAttribute="centerY" secondItem="Sk2-fX-ZLc" secondAttribute="centerY" id="3BV-ya-wMB"/>
+                            <constraint firstItem="Sk2-fX-ZLc" firstAttribute="top" secondItem="tcb-5G-g8w" secondAttribute="top" constant="126" id="QoX-mt-M5o"/>
+                            <constraint firstItem="gnA-9i-UyA" firstAttribute="leading" secondItem="tcb-5G-g8w" secondAttribute="leading" id="ZEc-4b-wpf"/>
+                            <constraint firstItem="Sk2-fX-ZLc" firstAttribute="leading" secondItem="tcb-5G-g8w" secondAttribute="leading" constant="57" id="e9M-n4-D3b"/>
+                            <constraint firstItem="gnA-9i-UyA" firstAttribute="centerX" secondItem="6Z2-tn-UE5" secondAttribute="centerX" id="hcD-XM-7Pv"/>
+                            <constraint firstItem="gnA-9i-UyA" firstAttribute="top" secondItem="6Z2-tn-UE5" secondAttribute="topMargin" constant="-44" id="w4J-KV-fNY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tcb-5G-g8w"/>
                     </view>
+                    <connections>
+                        <outlet property="croppedImage" destination="Sk2-fX-ZLc" id="Kch-ud-7te"/>
+                        <outlet property="stickerEditingView" destination="gnA-9i-UyA" id="HTd-Xf-tAM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wd3-sR-0Kn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,6 +118,7 @@
     </scenes>
     <resources>
         <image name="cameraButtton" width="550" height="550"/>
+        <image name="checkerBackground" width="1200" height="1200"/>
         <image name="flipCamera" width="48" height="48"/>
     </resources>
 </document>

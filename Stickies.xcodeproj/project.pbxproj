@@ -28,6 +28,7 @@
 		03A1C09923DF465F0002C003 /* CVPixelBuffer+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A1C08B23DF465F0002C003 /* CVPixelBuffer+Helpers.swift */; };
 		03A1C09A23DF465F0002C003 /* MLMultiArray+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A1C08C23DF465F0002C003 /* MLMultiArray+Image.swift */; };
 		03A1C09B23DF465F0002C003 /* CGImagePropertyOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A1C08D23DF465F0002C003 /* CGImagePropertyOrientation.swift */; };
+		03A1C09D23E210B20002C003 /* StickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A1C09C23E210B20002C003 /* StickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		03A1C08B23DF465F0002C003 /* CVPixelBuffer+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+Helpers.swift"; sourceTree = "<group>"; };
 		03A1C08C23DF465F0002C003 /* MLMultiArray+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MLMultiArray+Image.swift"; sourceTree = "<group>"; };
 		03A1C08D23DF465F0002C003 /* CGImagePropertyOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGImagePropertyOrientation.swift; sourceTree = "<group>"; };
+		03A1C09C23E210B20002C003 /* StickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				0359ECCB23DE14DF00F4D326 /* ViewController.swift */,
+				03A1C09C23E210B20002C003 /* StickerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03A1C09D23E210B20002C003 /* StickerViewController.swift in Sources */,
 				03A1C09123DF465F0002C003 /* MLMultiArray+Helpers.swift in Sources */,
 				0359ECCC23DE14DF00F4D326 /* ViewController.swift in Sources */,
 				03A1C09823DF465F0002C003 /* UIImage+RawBytes.swift in Sources */,
