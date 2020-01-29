@@ -55,7 +55,12 @@ class ViewController: UIViewController {
     @IBAction func flipCamera(_ sender: Any) {
     }
     
-    
+    //present the view with full screen to sticker view controller
+    func pushToStickerVC() {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "Sticker") as! StickerViewController
+        storyboard.modalPresentationStyle = .fullScreen
+        self.present(storyboard, animated: true, completion: nil)
+    }
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -77,6 +82,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             print(self.pickedImage.size)
             self.removeBackground(image: self.pickedImage)
             print(self.croppedImage.size)
+            self.pushToStickerVC()
         }
     }
 }

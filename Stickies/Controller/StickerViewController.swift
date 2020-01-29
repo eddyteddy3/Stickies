@@ -16,12 +16,12 @@ class StickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        initializeIU()
     }
     
     func initializeIU() {
         stickerEditingView.addCorner(cornerRadius: 20)
-        
+        stickerEditingView.addDropShadow(color: .black, radius: 10, shadowOffset: .init(width: 0, height: 10), shadowOpacity: 2)
     }
 
 }
