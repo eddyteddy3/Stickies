@@ -12,6 +12,7 @@ class StickerViewController: UIViewController {
 
     @IBOutlet var stickerEditingView: UIImageView!
     @IBOutlet var croppedImage: UIImageView!
+    @IBOutlet var backgroundView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,8 @@ class StickerViewController: UIViewController {
     
     func initializeIU() {
         stickerEditingView.addCorner(cornerRadius: 20)
-        stickerEditingView.addDropShadow(color: .black, radius: 10, shadowOffset: .init(width: 0, height: 10), shadowOpacity: 2)
+        backgroundView.addCorner(cornerRadius: 20)
+        backgroundView.addDropShadow(color: .black, radius: 8, shadowOffset: .init(width: 0, height: 4), shadowOpacity: 0.4)
     }
 
 }

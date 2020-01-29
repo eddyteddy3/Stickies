@@ -60,6 +60,7 @@ class ViewController: UIViewController {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "Sticker") as! StickerViewController
         storyboard.modalPresentationStyle = .fullScreen
         self.present(storyboard, animated: true, completion: nil)
+        storyboard.croppedImage.image = self.croppedImage
     }
 }
 
