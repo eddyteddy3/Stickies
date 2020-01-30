@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         initializeUIView() //initializing the view
     }
     
-    
+    //initializing during the launch
     func initializeUIView() {
         
         //camera view UI modifications
