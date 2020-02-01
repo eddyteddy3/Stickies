@@ -108,10 +108,12 @@ extension ViewController {
         chromaCIFilter?.setValue(image, forKey: kCIInputImageKey)
         return chromaCIFilter?.outputImage
     }
+    
     func composite(image: CIImage, mask: CIImage) -> CIImage? {
         return CIFilter(name:"CISourceOutCompositing",parameters:
             [kCIInputImageKey: image,kCIInputBackgroundImageKey: mask])?.outputImage
     }
+    
     func chromaKeyFilter() -> CIFilter? {
         let size = 64
         var cubeRGB = [Float]()
@@ -131,12 +133,12 @@ extension ViewController {
                 }
             }
         }
-        
         let data = Data(buffer: UnsafeBufferPointer(start: &cubeRGB, count: cubeRGB.count))
         
         let colorCubeFilter = CIFilter(name: "CIColorCube", parameters: ["inputCubeDimension": size, "inputCubeData": data])
         return colorCubeFilter
     }
+    
     func getBrightness(red: CGFloat, green: CGFloat, blue: CGFloat) -> CGFloat? {
         let color = UIColor(red: red, green: green, blue: blue, alpha: 1)
         var brightness: CGFloat = 0

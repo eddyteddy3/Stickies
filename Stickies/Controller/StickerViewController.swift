@@ -49,13 +49,15 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate {
         
         croppedImage.addGestureRecognizer(pinchGesture)
         croppedImage.addGestureRecognizer(panGesture)
+        croppedImage.addGestureRecognizer(rotateGesture)
+        
         croppedImage.isUserInteractionEnabled = true //enabling to make gesture functional
+        croppedImage.isMultipleTouchEnabled = true
     }
     
     //function to drag the image from the recieving event
     @objc
     func dragImage(_ sender: UIPanGestureRecognizer) {
-        print(sender.translation(in: backgroundView))
         let translation = sender.translation(in: self.backgroundView)
         croppedImage.center = CGPoint.init(x: croppedImage.center.x + translation.x, y: croppedImage.center.y + translation.y)
         sender.setTranslation(.zero, in: self.backgroundView)
@@ -69,7 +71,19 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @objc
     func rotateImage(_ sender: UIRotationGestureRecognizer) {
+        //print(sender.rotation)
+        //self.croppedImage.transform = croppedImage.transform.rotated(by: sender.rotation)
         
+        if sender.state == .ended || sender.state == .changed {
+            sender.view?.transform = sender.view!.transform.rotated(by: sender.rotation)
+            //sender.rotation = 0
+        } else {
+            //sender.rotation = 0
+        }
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 
 }
