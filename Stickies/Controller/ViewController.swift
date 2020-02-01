@@ -54,10 +54,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func cameraShutter(_ sender: Any) {
         self.present(self.picker, animated: true)
-        //if croppedImage = removeBackground(image: pickedImage)
-        
-        //print(pickedImage)
-        //print(croppedImage)
     }
     
     @IBAction func flipCamera(_ sender: Any) {
@@ -84,8 +80,6 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             print("Failed to pick the image from gallery.")
             return
         }
-        
-        //print(self.pickedImage.size)
         
         dismiss(animated: true) {
             print(self.pickedImage.size)

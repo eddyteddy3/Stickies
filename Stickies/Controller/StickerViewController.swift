@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StickerViewController: UIViewController {
+class StickerViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet var stickerEditingView: UIImageView!
     @IBOutlet var croppedImage: UIImageView!
@@ -37,11 +37,15 @@ class StickerViewController: UIViewController {
     //adding gestures to the imageView for Drag and Pinch in & out
     func addGestures() {
         //adding pinch gesture to scale the image
-        let pinchGesture = UIPinchGestureRecognizer.init()
-        pinchGesture.addTarget(self, action: #selector(scaleImage(_:)))
+        let pinchGesture = UIPinchGestureRecognizer.init(target: self, action: #selector(scaleImage(_:)))
+        pinchGesture.delegate = self
         
         //adding pan gesture to drag the image
         let panGesture = UIPanGestureRecognizer.init(target: self, action: #selector(dragImage(_:)))
+        panGesture.delegate = self
+        
+        let rotateGesture = UIRotationGestureRecognizer.init(target: self, action: #selector(rotateImage(_:)))
+        rotateGesture.delegate = self
         
         croppedImage.addGestureRecognizer(pinchGesture)
         croppedImage.addGestureRecognizer(panGesture)
@@ -61,6 +65,11 @@ class StickerViewController: UIViewController {
     @objc
     func scaleImage(_ sender: UIPinchGestureRecognizer) {
         self.croppedImage.transform = CGAffineTransform.init(scaleX: sender.scale, y: sender.scale)
+    }
+    
+    @objc
+    func rotateImage(_ sender: UIRotationGestureRecognizer) {
+        
     }
 
 }
