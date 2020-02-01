@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     //MARK:- Outlet Connections
     @IBOutlet var bottomView: UIView!
@@ -32,6 +33,12 @@ class ViewController: UIViewController {
         initializeUIView() //initializing the view
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        flipCamera.addSoftUIEffectForButton(cornerRadius: 10, themeColor: UIColor.init(named: "white")!)
+        cameraShutterButton.addSoftUIEffectForButton(cornerRadius: 14, themeColor: UIColor.init(named: "white")!)
+    }
+    
     //initializing during the launch
     func initializeUIView() {
         
@@ -40,8 +47,9 @@ class ViewController: UIViewController {
         
         //bottom view UI modifications
         bottomView.addCorner(cornerRadius: 20)
-        bottomView.backgroundColor = UIColor.init(named: "modifiedGray")
+        bottomView.backgroundColor = UIColor.init(named: "white")
         bottomView.addDropShadow(color: .black, radius: 6, shadowOffset: .init(width: 0, height: 8), shadowOpacity: 3)
+        
     }
     
     @IBAction func cameraShutter(_ sender: Any) {
@@ -85,22 +93,6 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             print(self.croppedImage.size)
             self.pushToStickerVC()
         }
-    }
-}
-
-extension UIView {
-    //to add drop down shadow to any specific view
-    func addDropShadow(color: UIColor, radius: CGFloat, shadowOffset: CGSize, shadowOpacity: Float) {
-        self.layer.shadowColor = color.cgColor
-        self.layer.shadowRadius = radius
-        self.layer.shadowOffset = shadowOffset
-        self.layer.shadowOpacity = shadowOpacity
-    }
-    
-    //to add the corner to any particular view
-    func addCorner(cornerRadius: CGFloat) {
-        self.layer.cornerRadius = cornerRadius
-        //self.layer.cornerCurve
     }
 }
 

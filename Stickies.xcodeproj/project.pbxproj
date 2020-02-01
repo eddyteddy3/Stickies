@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,6 +29,7 @@
 		03A1C09A23DF465F0002C003 /* MLMultiArray+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A1C08C23DF465F0002C003 /* MLMultiArray+Image.swift */; };
 		03A1C09B23DF465F0002C003 /* CGImagePropertyOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A1C08D23DF465F0002C003 /* CGImagePropertyOrientation.swift */; };
 		03A1C09D23E210B20002C003 /* StickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A1C09C23E210B20002C003 /* StickerViewController.swift */; };
+		03A1C09F23E34F720002C003 /* Extensions .swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A1C09E23E34F720002C003 /* Extensions .swift */; };
 		9348301B49B306B4DFF93400 /* Pods_Stickies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F275CD1440ADC3DCB4D6A77 /* Pods_Stickies.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		03A1C08C23DF465F0002C003 /* MLMultiArray+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MLMultiArray+Image.swift"; sourceTree = "<group>"; };
 		03A1C08D23DF465F0002C003 /* CGImagePropertyOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGImagePropertyOrientation.swift; sourceTree = "<group>"; };
 		03A1C09C23E210B20002C003 /* StickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerViewController.swift; sourceTree = "<group>"; };
+		03A1C09E23E34F720002C003 /* Extensions .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions .swift"; sourceTree = "<group>"; };
 		2F275CD1440ADC3DCB4D6A77 /* Pods_Stickies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stickies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		305E6B51C66211FA19C36BA8 /* Pods-Stickies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stickies.release.xcconfig"; path = "Target Support Files/Pods-Stickies/Pods-Stickies.release.xcconfig"; sourceTree = "<group>"; };
 		F3E7A43410A261D936C90F2F /* Pods-Stickies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stickies.debug.xcconfig"; path = "Target Support Files/Pods-Stickies/Pods-Stickies.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				03A1C07F23DF464F0002C003 /* CoreML Helpers */,
 				03A1C07D23DF45D30002C003 /* DeepLabV3.mlmodel */,
+				03A1C09E23E34F720002C003 /* Extensions .swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -184,7 +187,6 @@
 				F3E7A43410A261D936C90F2F /* Pods-Stickies.debug.xcconfig */,
 				305E6B51C66211FA19C36BA8 /* Pods-Stickies.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -316,6 +318,7 @@
 				03A1C09123DF465F0002C003 /* MLMultiArray+Helpers.swift in Sources */,
 				0359ECCC23DE14DF00F4D326 /* ViewController.swift in Sources */,
 				03A1C09823DF465F0002C003 /* UIImage+RawBytes.swift in Sources */,
+				03A1C09F23E34F720002C003 /* Extensions .swift in Sources */,
 				03A1C09223DF465F0002C003 /* CGImage+RawBytes.swift in Sources */,
 				03A1C09A23DF465F0002C003 /* MLMultiArray+Image.swift in Sources */,
 				03A1C09623DF465F0002C003 /* CGImage+CVPixelBuffer.swift in Sources */,

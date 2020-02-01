@@ -22,13 +22,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vii-1a-Wxf">
                                 <rect key="frame" x="0.0" y="726" width="414" height="170"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTP-NV-mG2">
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTP-NV-mG2">
                                         <rect key="frame" x="162" y="36" width="90" height="90"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="90" id="5MX-nI-8wF"/>
                                             <constraint firstAttribute="width" constant="90" id="Gvi-rO-X2i"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="cameraButtton"/>
+                                        <state key="normal" title="Button" image="camIcon"/>
                                         <connections>
                                             <action selector="cameraShutter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QEv-WU-uhw"/>
                                         </connections>
@@ -123,7 +123,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cameraButtton" width="550" height="550"/>
+        <image name="camIcon" width="715" height="715"/>
         <image name="checkerBackground" width="1200" height="1200"/>
         <image name="flipCamera" width="48" height="48"/>
     </resources>

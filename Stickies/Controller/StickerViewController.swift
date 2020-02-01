@@ -46,7 +46,6 @@ class StickerViewController: UIViewController {
         croppedImage.addGestureRecognizer(pinchGesture)
         croppedImage.addGestureRecognizer(panGesture)
         croppedImage.isUserInteractionEnabled = true //enabling to make gesture functional
-        
     }
     
     //function to drag the image from the recieving event
