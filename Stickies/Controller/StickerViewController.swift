@@ -10,16 +10,20 @@ import UIKit
 
 class StickerViewController: UIViewController, UIGestureRecognizerDelegate {
 
+    //MARK:- IBOutlet Connections
     @IBOutlet var stickerEditingView: UIImageView!
     @IBOutlet var croppedImage: UIImageView!
     @IBOutlet var backgroundView: UIView!
+    @IBOutlet var addBorderButton: UIButton!
+    @IBOutlet var addTextButton: UIButton!
+    
+    //MARK:- Common Variables
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
-        //functions to call
-        //initializeIU()
         addGestures()
     }
     
@@ -44,15 +48,17 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate {
         let panGesture = UIPanGestureRecognizer.init(target: self, action: #selector(dragImage(_:)))
         panGesture.delegate = self
         
+        //adding rotationGesture to rotate the image
         let rotateGesture = UIRotationGestureRecognizer.init(target: self, action: #selector(rotateImage(_:)))
         rotateGesture.delegate = self
         
+        //adding gestures to image that has been cropped
         croppedImage.addGestureRecognizer(pinchGesture)
         croppedImage.addGestureRecognizer(panGesture)
         croppedImage.addGestureRecognizer(rotateGesture)
         
         croppedImage.isUserInteractionEnabled = true //enabling to make gesture functional
-        croppedImage.isMultipleTouchEnabled = true
+        croppedImage.isMultipleTouchEnabled = true //to rotate the image
     }
     
     //function to drag the image from the recieving event
@@ -69,6 +75,7 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate {
         self.croppedImage.transform = CGAffineTransform.init(scaleX: sender.scale, y: sender.scale)
     }
     
+    //function to rotate the image
     @objc
     func rotateImage(_ sender: UIRotationGestureRecognizer) {
         //print(sender.rotation)
@@ -82,8 +89,18 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    //to enable all gestures work simultaneously
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
 
+    //MARK:- IBActions
+    
+    //funciton to addText in Canvas View
+    @IBAction func addText(_ sender: Any) {
+    }
+    
+    //function to add border to an image
+    @IBAction func addBorder(_ sender: Any) {
+    }
 }

@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -97,8 +98,38 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sk2-fX-ZLc">
                                 <rect key="frame" x="57" y="170" width="300" height="401"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4X-7D-z4Q">
+                                <rect key="frame" x="42" y="784" width="45" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="text"/>
+                                <connections>
+                                    <action selector="addText:" destination="fGe-U2-pdf" eventType="touchUpInside" id="CbN-at-JAf"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jpr-62-cJw">
+                                <rect key="frame" x="30" y="838" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abn-Vc-9ec">
+                                <rect key="frame" x="185" y="784" width="45" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="borderIcon"/>
+                                <connections>
+                                    <action selector="addBorder:" destination="fGe-U2-pdf" eventType="touchUpInside" id="BZ0-Mf-Zmt"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Border" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Hf-eD-SPu">
+                                <rect key="frame" x="164" y="838" width="87" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="white"/>
                         <constraints>
                             <constraint firstItem="tcb-5G-g8w" firstAttribute="bottom" secondItem="gnA-9i-UyA" secondAttribute="bottom" constant="121" id="0ak-Cc-yOi"/>
                             <constraint firstItem="gnA-9i-UyA" firstAttribute="centerX" secondItem="Sk2-fX-ZLc" secondAttribute="centerX" id="0pF-1K-qNo"/>
@@ -112,6 +143,8 @@
                         <viewLayoutGuide key="safeArea" id="tcb-5G-g8w"/>
                     </view>
                     <connections>
+                        <outlet property="addBorderButton" destination="abn-Vc-9ec" id="iFO-kV-wJT"/>
+                        <outlet property="addTextButton" destination="l4X-7D-z4Q" id="xxD-Q6-frF"/>
                         <outlet property="backgroundView" destination="xFP-FT-btu" id="dxt-2e-dAt"/>
                         <outlet property="croppedImage" destination="Sk2-fX-ZLc" id="Kch-ud-7te"/>
                         <outlet property="stickerEditingView" destination="gnA-9i-UyA" id="HTd-Xf-tAM"/>
@@ -123,8 +156,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="borderIcon" width="980" height="984"/>
         <image name="camIcon" width="715" height="715"/>
         <image name="checkerBackground" width="1200" height="1200"/>
         <image name="flipCamera" width="48" height="48"/>
+        <image name="text" width="1200" height="1200"/>
+        <namedColor name="white">
+            <color red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
