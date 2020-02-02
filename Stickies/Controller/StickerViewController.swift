@@ -34,8 +34,11 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate {
     //initializing the uiView
     func initializeIU() {
         stickerEditingView.addCorner(cornerRadius: 20)
+        
         backgroundView.addCorner(cornerRadius: 20)
         backgroundView.addDropShadow(color: .black, radius: 8, shadowOffset: .init(width: 0, height: 4), shadowOpacity: 0.4)
+        
+        addBorderButton.addSoftUIEffectForButton()
     }
     
     //adding gestures to the imageView for Drag and Pinch in & out
@@ -102,5 +105,7 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate {
     
     //function to add border to an image
     @IBAction func addBorder(_ sender: Any) {
+        croppedImage.layer.borderWidth = 2
+        croppedImage.layer.borderColor = UIColor.black.cgColor
     }
 }
