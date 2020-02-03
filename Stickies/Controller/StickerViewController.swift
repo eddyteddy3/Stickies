@@ -122,7 +122,16 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate, UIIm
         
         let colorEdge = expandMask._lumaToAlpha() * borderColor
         
-        let final: PIX = colorEdge & imagePix
+        let flipflop1 = FlipFlopPIX()
+        flipflop1.input = colorEdge & imagePix
+        flipflop1.flop = .left
+        //flipflop.flop = .left
+        
+        let flipflop2 = FlipFlopPIX()
+        flipflop2.input = flipflop1
+        flipflop2.flop = .left
+        
+        let final: PIX = flipflop2
         final.delegate = self
         //let image = final.renderedImage
         //let ciImage = image?.ciImage
@@ -139,7 +148,10 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate, UIIm
     //delegate method to retrieve the rendered image
     func nodeDidRender(_ node: NODE) {
         let image: UIImage = (node as! PIX).renderedImage!
+        
+        
         self.croppedImage.image = image
+        self.croppedImage.transform = CGAffineTransform.init(scaleX: 2, y: 2)
         //pushToStickerVC(image: image)
         //print(UIImage.init(ciImage: image!).size)
     }
@@ -153,6 +165,7 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate, UIIm
     
     //funciton to addText in Canvas View
     @IBAction func addText(_ sender: Any) {
+        
     }
     
     //function to add border to an image
