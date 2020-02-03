@@ -99,7 +99,7 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate, UIIm
     
     //MARK:- Functions
     //function to add border around the picture
-    func addBorder(image: UIImage) {
+    func addBorders(image: UIImage) {
         let imagePix = ImagePIX()
         imagePix.image = image
         
@@ -136,9 +136,10 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate, UIIm
         //view.addSubview(final.view)
     }
     
-    //pixelKit delegate method to retrieve the rendered image
+    //delegate method to retrieve the rendered image
     func nodeDidRender(_ node: NODE) {
-        //let image: UIImage = (node as! PIX).renderedImage!
+        let image: UIImage = (node as! PIX).renderedImage!
+        self.croppedImage.image = image
         //pushToStickerVC(image: image)
         //print(UIImage.init(ciImage: image!).size)
     }
@@ -156,8 +157,7 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate, UIIm
     
     //function to add border to an image
     @IBAction func addBorder(_ sender: Any) {
-        croppedImage.layer.borderWidth = 2
-        croppedImage.layer.borderColor = UIColor.black.cgColor
+        addBorders(image: segmentedImage)
     }
     
     //function to save the image

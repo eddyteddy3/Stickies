@@ -7,12 +7,8 @@
 //
 
 import UIKit
-import LiveValues
-import PixelKit
-import RenderKit
 
-class ViewController: UIViewController, UIGestureRecognizerDelegate, NODEDelegate {
-    
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     //MARK:- Outlet Connections
     @IBOutlet var bottomView: UIView!
