@@ -63,11 +63,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, NODEDelegat
     }
     
     //present the view with full screen to sticker view controller
-    func pushToStickerVC(image: UIImage) {
+    func pushToStickerVC() {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "Sticker") as! StickerViewController
         storyboard.modalPresentationStyle = .fullScreen
+        storyboard.segmentedImage = self.croppedImage
         self.present(storyboard, animated: true, completion: nil)
-        storyboard.croppedImage.image = self.croppedImage
     }
     
     func addBorder(image: UIImage) {
@@ -108,8 +108,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, NODEDelegat
     }
     
     func nodeDidRender(_ node: NODE) {
-        let image: UIImage = (node as! PIX).renderedImage!
-        pushToStickerVC(image: image)
+        //let image: UIImage = (node as! PIX).renderedImage!
+        //pushToStickerVC(image: image)
         //print(UIImage.init(ciImage: image!).size)
     }
 }
@@ -131,8 +131,8 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             print(self.pickedImage.size)
             self.removeBackground(image: self.pickedImage)
             print(self.croppedImage.size)
-            //self.pushToStickerVC()
-            self.addBorder(image: self.croppedImage)
+            self.pushToStickerVC()
+            //self.addBorder(image: self.croppedImage)
         }
     }
 }

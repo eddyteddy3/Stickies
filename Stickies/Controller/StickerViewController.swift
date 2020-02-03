@@ -19,12 +19,13 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate, UIIm
     @IBOutlet var saveImageButton: UIButton!
     
     //MARK:- Common Variables
-    
+    var segmentedImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        croppedImage.image = segmentedImage
+        print(segmentedImage.size)
         addGestures()
     }
     
