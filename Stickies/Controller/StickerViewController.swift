@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import LiveValues
+import PixelKit
+import RenderKit
 
-class StickerViewController: UIViewController, UIGestureRecognizerDelegate, UIImagePickerControllerDelegate {
+class StickerViewController: UIViewController, UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, NODEDelegate {
 
     //MARK:- IBOutlet Connections
     @IBOutlet var stickerEditingView: UIImageView!
@@ -25,7 +28,7 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate, UIIm
         super.viewDidLoad()
 
         croppedImage.image = segmentedImage
-        print(segmentedImage.size)
+        
         addGestures()
     }
     
@@ -94,7 +97,51 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate, UIIm
         }
     }
     
+    //MARK:- Functions
+    //function to add border around the picture
+    func addBorder(image: UIImage) {
+        let imagePix = ImagePIX()
+        imagePix.image = image
+        
+        let background = ColorPIX.init(at: .fullscreen)
+        background.color = .clear
+        
+        let imageOverBackground: BlendPIX = background & imagePix
+        
+        let mask: ReorderPIX = ReorderPIX()
+        mask.inputA = imageOverBackground
+        mask.inputB = imageOverBackground
+        mask.redChannel = .alpha
+        mask.greenChannel = .alpha
+        mask.blueChannel = .alpha
+        mask.alphaChannel = .one
+        
+        let expandMask = mask._blur(0.1)._threshold(0.1)
+        
+        let borderColor: LiveColor = .red
+        
+        let colorEdge = expandMask._lumaToAlpha() * borderColor
+        
+        let final: PIX = colorEdge & imagePix
+        final.delegate = self
+        //let image = final.renderedImage
+        //let ciImage = image?.ciImage
+        
+        //let ciImage = final.renderedImage
+        //let finalImage = UIImage.init(ciImage: ciImage)
+            //pushToStickerVC(image: final)
+        
+        
+        //final.view.frame = view.bounds
+        //view.addSubview(final.view)
+    }
     
+    //pixelKit delegate method to retrieve the rendered image
+    func nodeDidRender(_ node: NODE) {
+        //let image: UIImage = (node as! PIX).renderedImage!
+        //pushToStickerVC(image: image)
+        //print(UIImage.init(ciImage: image!).size)
+    }
     
     //to enable all gestures work simultaneously
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {

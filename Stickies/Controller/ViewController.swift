@@ -69,49 +69,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, NODEDelegat
         storyboard.segmentedImage = self.croppedImage
         self.present(storyboard, animated: true, completion: nil)
     }
-    
-    func addBorder(image: UIImage) {
-        let imagePix = ImagePIX()
-        imagePix.image = image
-        
-        let background = ColorPIX.init(at: .fullscreen)
-        background.color = .clear
-        
-        let imageOverBackground: BlendPIX = background & imagePix
-        
-        let mask: ReorderPIX = ReorderPIX()
-        mask.inputA = imageOverBackground
-        mask.inputB = imageOverBackground
-        mask.redChannel = .alpha
-        mask.greenChannel = .alpha
-        mask.blueChannel = .alpha
-        mask.alphaChannel = .one
-        
-        let expandMask = mask._blur(0.1)._threshold(0.1)
-        
-        let borderColor: LiveColor = .red
-        
-        let colorEdge = expandMask._lumaToAlpha() * borderColor
-        
-        let final: PIX = colorEdge & imagePix
-        final.delegate = self
-        //let image = final.renderedImage
-        //let ciImage = image?.ciImage
-        
-        //let ciImage = final.renderedImage
-        //let finalImage = UIImage.init(ciImage: ciImage)
-            //pushToStickerVC(image: final)
-        
-        
-        //final.view.frame = view.bounds
-        //view.addSubview(final.view)
-    }
-    
-    func nodeDidRender(_ node: NODE) {
-        //let image: UIImage = (node as! PIX).renderedImage!
-        //pushToStickerVC(image: image)
-        //print(UIImage.init(ciImage: image!).size)
-    }
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
