@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
@@ -18,9 +19,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     //common variables
     let model = DeepLabV3()
+    
+    //to pick the image from gallery
     let picker = UIImagePickerController()
+    
     var pickedImage = UIImage()
     var croppedImage = UIImage()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
