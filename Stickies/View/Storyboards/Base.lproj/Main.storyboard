@@ -128,6 +128,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cy1-BI-Tnz">
+                                <rect key="frame" x="340" y="784" width="45" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="saveIcon"/>
+                                <connections>
+                                    <action selector="saveImage:" destination="fGe-U2-pdf" eventType="touchUpInside" id="gsE-8N-2g2"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Save" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjI-3j-l6V">
+                                <rect key="frame" x="344" y="841" width="37" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="white"/>
                         <constraints>
@@ -147,6 +162,7 @@
                         <outlet property="addTextButton" destination="l4X-7D-z4Q" id="xxD-Q6-frF"/>
                         <outlet property="backgroundView" destination="xFP-FT-btu" id="dxt-2e-dAt"/>
                         <outlet property="croppedImage" destination="Sk2-fX-ZLc" id="Kch-ud-7te"/>
+                        <outlet property="saveImageButton" destination="Cy1-BI-Tnz" id="LSE-V3-Fa5"/>
                         <outlet property="stickerEditingView" destination="gnA-9i-UyA" id="HTd-Xf-tAM"/>
                     </connections>
                 </viewController>
@@ -160,6 +176,7 @@
         <image name="camIcon" width="715" height="715"/>
         <image name="checkerBackground" width="1200" height="1200"/>
         <image name="flipCamera" width="48" height="48"/>
+        <image name="saveIcon" width="36" height="36"/>
         <image name="text" width="1200" height="1200"/>
         <namedColor name="white">
             <color red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

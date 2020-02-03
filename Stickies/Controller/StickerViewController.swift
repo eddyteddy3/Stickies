@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StickerViewController: UIViewController, UIGestureRecognizerDelegate {
+class StickerViewController: UIViewController, UIGestureRecognizerDelegate, UIImagePickerControllerDelegate {
 
     //MARK:- IBOutlet Connections
     @IBOutlet var stickerEditingView: UIImageView!
@@ -16,6 +16,7 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var backgroundView: UIView!
     @IBOutlet var addBorderButton: UIButton!
     @IBOutlet var addTextButton: UIButton!
+    @IBOutlet var saveImageButton: UIButton!
     
     //MARK:- Common Variables
     
@@ -92,6 +93,8 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    
+    
     //to enable all gestures work simultaneously
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
@@ -107,5 +110,21 @@ class StickerViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBAction func addBorder(_ sender: Any) {
         croppedImage.layer.borderWidth = 2
         croppedImage.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    //function to save the image
+    @IBAction func saveImage(_ sender: Any) {
+        guard let image = croppedImage.image else {return}
+        
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    @objc
+    func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if error != nil {
+            print("ERROR SAVING Image")
+        } else {
+            print("Successfully saved the image")
+        }
     }
 }

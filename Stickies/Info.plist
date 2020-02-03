@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>To save your sticker in gallery</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To make stickers out of your images</string>
 	<key>CFBundleDevelopmentRegion</key>

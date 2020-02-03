@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import LiveValues
+import PixelKit
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
@@ -60,11 +61,44 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     //present the view with full screen to sticker view controller
-    func pushToStickerVC() {
+    func pushToStickerVC(image: UIImage) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "Sticker") as! StickerViewController
         storyboard.modalPresentationStyle = .fullScreen
         self.present(storyboard, animated: true, completion: nil)
-        storyboard.croppedImage.image = self.croppedImage
+        storyboard.croppedImage.image = image
+    }
+    
+    func addBorder(image: UIImage) {
+        let imagePix = ImagePIX()
+        imagePix.image = image
+        
+        let background = ColorPIX.init(at: .fullscreen)
+        background.color = .clear
+        
+        let imageOverBackground: BlendPIX = background & imagePix
+        
+        let mask: ReorderPIX = ReorderPIX()
+        mask.inputA = imageOverBackground
+        mask.inputB = imageOverBackground
+        mask.redChannel = .alpha
+        mask.greenChannel = .alpha
+        mask.blueChannel = .alpha
+        mask.alphaChannel = .one
+        
+        let expandMask = mask._blur(0.1)._threshold(0.1)
+        
+        let borderColor: LiveColor = .red
+        
+        let colorEdge = expandMask._lumaToAlpha() * borderColor
+        
+        let final: PIX = colorEdge & imagePix
+        let ciImage = final.renderedCIImage!
+        let finalImage = UIImage.init(ciImage: ciImage)
+            //pushToStickerVC(image: final)
+        print(finalImage.size)
+        
+        //final.view.frame = view.bounds
+        //view.addSubview(final.view)
     }
 }
 
@@ -85,7 +119,8 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             print(self.pickedImage.size)
             self.removeBackground(image: self.pickedImage)
             print(self.croppedImage.size)
-            self.pushToStickerVC()
+            //self.pushToStickerVC()
+            self.addBorder(image: self.croppedImage)
         }
     }
 }

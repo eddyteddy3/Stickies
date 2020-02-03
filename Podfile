@@ -7,5 +7,6 @@ target 'Stickies' do
 
   # Pods for Stickies
 pod 'MHSoftUI'
+pod 'PixelKit'
 
 end
