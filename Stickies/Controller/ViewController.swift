@@ -9,8 +9,10 @@
 import UIKit
 import LiveValues
 import PixelKit
+import RenderKit
 
-class ViewController: UIViewController, UIGestureRecognizerDelegate {
+class ViewController: UIViewController, UIGestureRecognizerDelegate, NODEDelegate {
+    
     
     //MARK:- Outlet Connections
     @IBOutlet var bottomView: UIView!
@@ -65,7 +67,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "Sticker") as! StickerViewController
         storyboard.modalPresentationStyle = .fullScreen
         self.present(storyboard, animated: true, completion: nil)
-        storyboard.croppedImage.image = image
+        storyboard.croppedImage.image = self.croppedImage
     }
     
     func addBorder(image: UIImage) {
@@ -92,13 +94,23 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let colorEdge = expandMask._lumaToAlpha() * borderColor
         
         let final: PIX = colorEdge & imagePix
-        let ciImage = final.renderedCIImage!
-        let finalImage = UIImage.init(ciImage: ciImage)
+        final.delegate = self
+        //let image = final.renderedImage
+        //let ciImage = image?.ciImage
+        
+        //let ciImage = final.renderedImage
+        //let finalImage = UIImage.init(ciImage: ciImage)
             //pushToStickerVC(image: final)
-        print(finalImage.size)
+        
         
         //final.view.frame = view.bounds
         //view.addSubview(final.view)
+    }
+    
+    func nodeDidRender(_ node: NODE) {
+        let image: UIImage = (node as! PIX).renderedImage!
+        pushToStickerVC(image: image)
+        //print(UIImage.init(ciImage: image!).size)
     }
 }
 
