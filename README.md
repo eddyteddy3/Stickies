@@ -4,7 +4,6 @@
 
 [![Swift Version][swift-image]][swift-url]
 [![Build Status][travis-image]][travis-url]
-[![License][license-image]][license-url]
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)](https://img.shields.io/cocoapods/v/LFAlertController.svg)  
 [![Platform](https://img.shields.io/cocoapods/p/LFAlertController.svg?style=flat)](http://cocoapods.org/pods/LFAlertController)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
@@ -52,7 +51,7 @@ Moazzam Tahir – [@moazzam_tahir](https://twitter.com/moazzam_tahir) – moazza
 
 Distributed under the GNU Public license. See ``LICENSE`` for more information.
 
-[https://github.com/yourname/github-link](https://github.com/eddyteddy3/)
+[https://github.com/eddytedd3/Stickies](https://github.com/eddyteddy3/Stickies)
 
 [swift-image]:https://img.shields.io/badge/swift-4.1-orange
 [swift-url]: https://swift.org/
