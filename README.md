@@ -25,7 +25,7 @@
 ## Installation
 
 #### CocoaPods
-You can use [CocoaPods](http://cocoapods.org/) to install `YourLibrary` by adding it to your `Podfile`:
+Please install the pods contained in Podfile before running the project.
 
 ```ruby
 platform :ios, '12.0'
